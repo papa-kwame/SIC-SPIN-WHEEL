@@ -30,8 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
             spinBtn.innerHTML = '<span>SPIN NOW</span>';
             totalSpins++;
             
-            // Show Winner Modal with Clean Prize Label
-            if (winnerPrizeName) winnerPrizeName.textContent = prize.label;
+            // Show Winner Modal with Full Prize Label (e.g., GH₵ 200 FUEL COUPON)
+            if (winnerPrizeName) {
+                winnerPrizeName.textContent = prize.fullLabel || prize.label;
+            }
             
             setTimeout(() => {
                 winnerModal.classList.add('active');

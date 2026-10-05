@@ -1,6 +1,7 @@
 /**
- * SIC Insurance Spin Wheel - High-Res Minimalist Wheel Engine
- * Slices have clean Inter/Roboto text labels with NO icons and a sleek, logo-free center cap.
+ * SIC Insurance Spin Wheel - Canvas Physics Engine
+ * Slices configured with Ghana Cedi currency (GH₵ 50, GH₵ 100, GH₵ 200 Fuel Coupons),
+ * weighted probabilities (Tissue easiest, GH₵ 200 Fuel hardest), and Inter/Roboto typography.
  */
 
 class SpinWheel {
@@ -8,15 +9,17 @@ class SpinWheel {
         this.canvas = document.getElementById(canvasId);
         this.ctx = this.canvas.getContext('2d');
         
-        // Exact 7 prize items without any icons
+        // Slices & Weighted Probabilities
         this.prizes = options.prizes || [
-            { label: 'T-SHIRT', bg: '#002B66', text: '#FFFFFF', weight: 1 },
-            { label: 'KEY HOLDER', bg: '#E52320', text: '#FFFFFF', weight: 1 },
-            { label: 'DANGLER', bg: '#00A8E8', text: '#FFFFFF', weight: 1 },
-            { label: 'PEN', bg: '#FF8C66', text: '#001838', weight: 1 },
-            { label: 'FUEL COUPON', bg: '#0B3C5D', text: '#FFFFFF', weight: 1 },
-            { label: 'CAR DUSTER', bg: '#DC2626', text: '#FFFFFF', weight: 1 },
-            { label: 'TISSUE', bg: '#0284C7', text: '#FFFFFF', weight: 1 }
+            { label: 'T-SHIRT', fullLabel: 'T-SHIRT', bg: '#002B66', text: '#FFFFFF', weight: 14 },
+            { label: 'KEY HOLDER', fullLabel: 'KEY HOLDER', bg: '#E52320', text: '#FFFFFF', weight: 18 },
+            { label: 'DANGLER', fullLabel: 'DANGLER', bg: '#00A8E8', text: '#FFFFFF', weight: 18 },
+            { label: 'PEN', fullLabel: 'PEN', bg: '#FF8C66', text: '#001838', weight: 20 },
+            { label: 'TISSUE', fullLabel: 'TISSUE', bg: '#0284C7', text: '#FFFFFF', weight: 35 }, // EASIEST TO GET
+            { label: 'CAR DUSTER', fullLabel: 'CAR DUSTER', bg: '#DC2626', text: '#FFFFFF', weight: 12 },
+            { label: 'GH₵ 50 FUEL', fullLabel: 'GH₵ 50 FUEL COUPON', bg: '#0B3C5D', text: '#FFFFFF', weight: 5 },   // Harder
+            { label: 'GH₵ 100 FUEL', fullLabel: 'GH₵ 100 FUEL COUPON', bg: '#004080', text: '#FFFFFF', weight: 3 },  // Very Hard
+            { label: 'GH₵ 200 FUEL', fullLabel: 'GH₵ 200 FUEL COUPON', bg: '#B91C1C', text: '#FFFFFF', weight: 1 }   // HARDEST TO GET
         ];
 
         this.currentAngle = 0;
@@ -98,15 +101,15 @@ class SpinWheel {
             ctx.strokeStyle = '#FFFFFF';
             ctx.stroke();
 
-            // Clean Typography Label (NO Icons!)
+            // Clean Typography Label (Inter Font)
             ctx.save();
             ctx.rotate(startA + sliceAngle / 2);
             ctx.textAlign = 'right';
             ctx.textBaseline = 'middle';
 
             ctx.fillStyle = prize.text;
-            ctx.font = `900 ${Math.floor(this.radius * 0.088)}px 'Inter', sans-serif`;
-            ctx.fillText(prize.label, this.radius * 0.84, 0);
+            ctx.font = `900 ${Math.floor(this.radius * 0.078)}px 'Inter', sans-serif`;
+            ctx.fillText(prize.label, this.radius * 0.86, 0);
 
             ctx.restore();
         }
@@ -127,10 +130,9 @@ class SpinWheel {
             ctx.fill();
         }
 
-        // 4. Minimalist Pure Center Cap (NO logo inside)
+        // 4. Minimalist Pure Center Cap
         const hubRadius = this.radius * 0.22;
 
-        // Outer Cap Surface
         ctx.beginPath();
         ctx.arc(0, 0, hubRadius, 0, Math.PI * 2);
         ctx.fillStyle = '#FFFFFF';
@@ -138,14 +140,12 @@ class SpinWheel {
         ctx.shadowBlur = 10;
         ctx.fill();
 
-        // Sleek Navy Accent Ring
         ctx.beginPath();
         ctx.arc(0, 0, hubRadius, 0, Math.PI * 2);
         ctx.strokeStyle = '#002B66';
         ctx.lineWidth = 3.5;
         ctx.stroke();
 
-        // Inner Minimal Center Dot
         ctx.beginPath();
         ctx.arc(0, 0, hubRadius * 0.45, 0, Math.PI * 2);
         ctx.fillStyle = '#002B66';
@@ -166,6 +166,7 @@ class SpinWheel {
         if (this.onSpinStart) this.onSpinStart();
         if (window.soundEngine) window.soundEngine.playSpinStart();
 
+        // Calculate weighted probability outcome
         const totalWeight = this.prizes.reduce((sum, p) => sum + (p.weight || 1), 0);
         let random = Math.random() * totalWeight;
         let winningIndex = 0;
