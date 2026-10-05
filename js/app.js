@@ -1,13 +1,11 @@
 /**
  * SIC Insurance Spin Wheel - Main Application Controller
- * Handles wheel initialization, spin events, sound toggling, and clean modern popup UI.
+ * Handles wheel initialization, spin events, and clean modern popup UI.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const spinBtn = document.getElementById('spinBtn');
-    const soundBtn = document.getElementById('soundBtn');
-    const fullscreenBtn = document.getElementById('fullscreenBtn');
     
     const winnerModal = document.getElementById('winnerModal');
     const winnerPrizeName = document.getElementById('winnerPrizeName');
@@ -21,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let totalSpins = 0;
 
-    // Initialize Minimalist Spin Wheel
+    // Initialize Spin Wheel
     const wheel = new SpinWheel('wheelCanvas', {
         onSpinStart: () => {
             spinBtn.disabled = true;
@@ -45,28 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     spinBtn.addEventListener('click', () => {
         if (!wheel.isSpinning) {
             wheel.spin();
-        }
-    });
-
-    // Sound Toggle
-    soundBtn.addEventListener('click', () => {
-        if (window.soundEngine) {
-            const muted = window.soundEngine.toggleMute();
-            soundBtn.innerHTML = muted ? '🔇' : '🔊';
-            soundBtn.title = muted ? 'Unmute Sound' : 'Mute Sound';
-        }
-    });
-
-    // Fullscreen Toggle
-    fullscreenBtn.addEventListener('click', () => {
-        if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen().catch(err => {
-                console.log(`Fullscreen request error: ${err.message}`);
-            });
-        } else {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            }
         }
     });
 
