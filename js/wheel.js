@@ -1,7 +1,7 @@
 /**
  * SIC Insurance Spin Wheel - Canvas Physics Engine
- * Slices configured with Ghana Cedi currency (GH₵ 50, GH₵ 100, GH₵ 200 Fuel Coupons),
- * weighted probabilities (Tissue easiest, GH₵ 200 Fuel hardest), and Inter/Roboto typography.
+ * Slices display large, clear, bold Ghana Cedi fuel coupon amounts (GH₵ 50, GH₵ 100, GH₵ 200).
+ * Weighted probabilities (Tissue easiest = 35, GH₵ 200 Fuel hardest = 1).
  */
 
 class SpinWheel {
@@ -15,11 +15,11 @@ class SpinWheel {
             { label: 'KEY HOLDER', fullLabel: 'KEY HOLDER', bg: '#E52320', text: '#FFFFFF', weight: 18 },
             { label: 'DANGLER', fullLabel: 'DANGLER', bg: '#00A8E8', text: '#FFFFFF', weight: 18 },
             { label: 'PEN', fullLabel: 'PEN', bg: '#FF8C66', text: '#001838', weight: 20 },
-            { label: 'TISSUE', fullLabel: 'TISSUE', bg: '#0284C7', text: '#FFFFFF', weight: 35 }, // EASIEST TO GET
+            { label: 'TISSUE', fullLabel: 'TISSUE', bg: '#0284C7', text: '#FFFFFF', weight: 35 }, // EASIEST TO WIN
             { label: 'CAR DUSTER', fullLabel: 'CAR DUSTER', bg: '#DC2626', text: '#FFFFFF', weight: 12 },
             { label: 'GH₵ 50 FUEL', fullLabel: 'GH₵ 50 FUEL COUPON', bg: '#0B3C5D', text: '#FFFFFF', weight: 5 },   // Harder
             { label: 'GH₵ 100 FUEL', fullLabel: 'GH₵ 100 FUEL COUPON', bg: '#004080', text: '#FFFFFF', weight: 3 },  // Very Hard
-            { label: 'GH₵ 200 FUEL', fullLabel: 'GH₵ 200 FUEL COUPON', bg: '#B91C1C', text: '#FFFFFF', weight: 1 }   // HARDEST TO GET
+            { label: 'GH₵ 200 FUEL', fullLabel: 'GH₵ 200 FUEL COUPON', bg: '#B91C1C', text: '#FFFFFF', weight: 1 }   // HARDEST TO WIN
         ];
 
         this.currentAngle = 0;
@@ -101,15 +101,22 @@ class SpinWheel {
             ctx.strokeStyle = '#FFFFFF';
             ctx.stroke();
 
-            // Clean Typography Label (Inter Font)
+            // Clean & Bold Radial Typography Label (Inter Font)
             ctx.save();
             ctx.rotate(startA + sliceAngle / 2);
             ctx.textAlign = 'right';
             ctx.textBaseline = 'middle';
 
             ctx.fillStyle = prize.text;
-            ctx.font = `900 ${Math.floor(this.radius * 0.078)}px 'Inter', sans-serif`;
-            ctx.fillText(prize.label, this.radius * 0.86, 0);
+            
+            // Format currency amounts (GH₵ 50, GH₵ 100, GH₵ 200) extra large and bold!
+            if (prize.label.startsWith('GH₵')) {
+                ctx.font = `900 ${Math.floor(this.radius * 0.082)}px 'Inter', sans-serif`;
+                ctx.fillText(prize.label, this.radius * 0.88, 0);
+            } else {
+                ctx.font = `900 ${Math.floor(this.radius * 0.08)}px 'Inter', sans-serif`;
+                ctx.fillText(prize.label, this.radius * 0.85, 0);
+            }
 
             ctx.restore();
         }
@@ -166,7 +173,6 @@ class SpinWheel {
         if (this.onSpinStart) this.onSpinStart();
         if (window.soundEngine) window.soundEngine.playSpinStart();
 
-        // Calculate weighted probability outcome
         const totalWeight = this.prizes.reduce((sum, p) => sum + (p.weight || 1), 0);
         let random = Math.random() * totalWeight;
         let winningIndex = 0;
