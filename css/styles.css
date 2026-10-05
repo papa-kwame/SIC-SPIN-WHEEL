@@ -70,7 +70,7 @@ body {
     opacity: 0.94;
 }
 
-/* 1. Pre-Fade Highlight State (Slow 1.2s sky blue glow + scale) */
+/* 1. Pre-Fade Highlight State */
 .photo-card.about-to-fade {
     transform: scale(1.1) rotate(0deg) !important;
     z-index: 50 !important;
@@ -83,7 +83,7 @@ body {
     transition: transform 1.2s ease, opacity 1.2s ease, box-shadow 1.2s ease, border-color 1.2s ease !important;
 }
 
-/* 2. Fade Out State (Slow 1.8s gentle fade) */
+/* 2. Fade Out State */
 .photo-card.fading-out {
     opacity: 0 !important;
     transform: scale(0.92) !important;
@@ -148,7 +148,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 18px 18px 18px;
+    padding: 22px 20px 20px 20px;
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
@@ -160,12 +160,12 @@ body {
     justify-content: center;
     padding: 0 4px;
     z-index: 10;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .logo-container {
     background: #FFFFFF;
-    padding: 8px 24px;
+    padding: 8px 26px;
     border-radius: 30px;
     display: flex;
     align-items: center;
@@ -174,8 +174,8 @@ body {
 }
 
 .brand-logo {
-    height: 36px;
-    max-width: 160px;
+    height: 38px;
+    max-width: 165px;
     object-fit: contain;
 }
 
@@ -188,7 +188,7 @@ body {
     align-items: center;
     justify-content: center;
     flex: 1;
-    margin: 6px 0;
+    margin: 8px 0;
     z-index: 10;
 }
 
@@ -229,52 +229,76 @@ body {
     filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.7));
 }
 
-/* Action Controls & Spin Button */
+/* Action Controls & Beautified Spin Button */
 .cta-section {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 14px;
     z-index: 10;
-    margin-top: 6px;
-    padding-bottom: 4px;
+    margin-top: 8px;
+    padding-bottom: 2px;
 }
 
-.instruction-text {
-    font-family: 'Roboto', sans-serif;
-    font-size: 13px;
-    color: var(--text-muted);
-    text-align: center;
-    font-weight: 400;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-}
-
+/* Beautified Modern 3D Spin Button */
 .spin-btn {
-    width: 82%;
-    max-width: 250px;
-    height: 50px;
+    position: relative;
+    width: 86%;
+    max-width: 270px;
+    height: 54px;
     border: none;
-    border-radius: 40px;
-    background: var(--sic-red);
+    border-radius: 50px;
+    background: linear-gradient(135deg, #FF3B30 0%, #E52320 50%, #B91C1C 100%);
     color: #FFFFFF;
     font-family: 'Inter', sans-serif;
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 900;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(229, 35, 32, 0.5);
-    transition: transform 0.15s ease, background-color 0.15s ease;
+    box-shadow: 
+        0 12px 30px rgba(229, 35, 32, 0.55),
+        0 0 0 2px rgba(255, 255, 255, 0.15),
+        inset 0 1.5px 2px rgba(255, 255, 255, 0.45);
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.spin-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transform: skewX(-20deg);
+    animation: lightShine 3.5s infinite;
+}
+
+@keyframes lightShine {
+    0% { left: -100%; }
+    30% { left: 200%; }
+    100% { left: 200%; }
 }
 
 .spin-btn:hover:not(:disabled) {
-    background: #D01C1A;
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 
+        0 16px 36px rgba(229, 35, 32, 0.7),
+        0 0 0 2px rgba(255, 255, 255, 0.3),
+        inset 0 2px 4px rgba(255, 255, 255, 0.6);
 }
 
 .spin-btn:active:not(:disabled) {
-    transform: translateY(1px);
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 
+        0 6px 16px rgba(229, 35, 32, 0.4),
+        inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .spin-btn:disabled {
@@ -287,29 +311,29 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 14px;
+    gap: 16px;
     width: 100%;
-    margin-top: 4px;
-    padding-bottom: 2px;
+    margin-top: 2px;
 }
 
 .icon-btn {
     background: rgba(255, 255, 255, 0.12);
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: #FFFFFF;
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     font-size: 14px;
-    transition: background 0.2s ease;
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .icon-btn:hover {
     background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.08);
 }
 
 .tc-link {
@@ -319,6 +343,7 @@ body {
     font-weight: 500;
     text-decoration: underline;
     cursor: pointer;
+    transition: color 0.2s ease;
 }
 
 .tc-link:hover {
@@ -512,18 +537,18 @@ body {
         min-height: 100vh;
         border-radius: 0;
         border: none;
-        padding: 16px 12px 14px 12px;
+        padding: 18px 14px 14px 14px;
     }
 
     .brand-logo {
-        height: 30px;
-        max-width: 135px;
+        height: 32px;
+        max-width: 140px;
     }
 
     .spin-btn {
-        height: 48px;
-        font-size: 17px;
-        max-width: 240px;
+        height: 50px;
+        font-size: 18px;
+        max-width: 250px;
     }
 
     .canvas-wrapper {
