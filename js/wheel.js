@@ -9,17 +9,17 @@ class SpinWheel {
         this.canvas = document.getElementById(canvasId);
         this.ctx = this.canvas.getContext('2d');
         
-        // Slices & Weighted Probabilities
+        // Slices & Weighted Probabilities (Fuel coupons spaced out evenly around the wheel)
         this.prizes = options.prizes || [
             { label: 'T-SHIRT', fullLabel: 'T-SHIRT', bg: '#002B66', text: '#FFFFFF', weight: 14 },
             { label: 'KEY HOLDER', fullLabel: 'KEY HOLDER', bg: '#E52320', text: '#FFFFFF', weight: 18 },
-            { label: 'DANGLER', fullLabel: 'DANGLER', bg: '#00A8E8', text: '#FFFFFF', weight: 18 },
+            { label: 'GH₵ 50 FUEL', fullLabel: 'GH₵ 50 FUEL COUPON', bg: '#0B3C5D', text: '#FFFFFF', weight: 5 },   // Fuel Coupon 1
             { label: 'PEN', fullLabel: 'PEN', bg: '#FF8C66', text: '#001838', weight: 20 },
-            { label: 'TISSUE', fullLabel: 'TISSUE', bg: '#0284C7', text: '#FFFFFF', weight: 35 }, // EASIEST TO WIN
+            { label: 'DANGLER', fullLabel: 'DANGLER', bg: '#00A8E8', text: '#FFFFFF', weight: 18 },
+            { label: 'GH₵ 100 FUEL', fullLabel: 'GH₵ 100 FUEL COUPON', bg: '#004080', text: '#FFFFFF', weight: 3 },  // Fuel Coupon 2
             { label: 'CAR DUSTER', fullLabel: 'CAR DUSTER', bg: '#DC2626', text: '#FFFFFF', weight: 12 },
-            { label: 'GH₵ 50 FUEL', fullLabel: 'GH₵ 50 FUEL COUPON', bg: '#0B3C5D', text: '#FFFFFF', weight: 5 },   // Harder
-            { label: 'GH₵ 100 FUEL', fullLabel: 'GH₵ 100 FUEL COUPON', bg: '#004080', text: '#FFFFFF', weight: 3 },  // Very Hard
-            { label: 'GH₵ 200 FUEL', fullLabel: 'GH₵ 200 FUEL COUPON', bg: '#B91C1C', text: '#FFFFFF', weight: 1 }   // HARDEST TO WIN
+            { label: 'TISSUE', fullLabel: 'TISSUE', bg: '#0284C7', text: '#FFFFFF', weight: 35 },                     // EASIEST TO WIN
+            { label: 'GH₵ 200 FUEL', fullLabel: 'GH₵ 200 FUEL COUPON', bg: '#B91C1C', text: '#FFFFFF', weight: 1 }   // HARDEST TO WIN (Fuel Coupon 3)
         ];
 
         this.currentAngle = 0;
