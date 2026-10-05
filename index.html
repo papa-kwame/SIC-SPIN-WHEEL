@@ -44,18 +44,14 @@
         <div class="photo-board-overlay"></div>
     </div>
 
-    <!-- Main Campaign Container (1080x1350 Wheel Frame Centered on Page) -->
+    <!-- Main Campaign Container -->
     <main class="campaign-frame" id="campaignFrame">
         
-        <!-- Header & SIC Brand Logo -->
+        <!-- Clean Header & SIC Brand Logo Only -->
         <header class="brand-header">
             <div class="logo-container">
                 <img src="assets/logo.png" alt="SIC Insurance PLC" class="brand-logo" id="mainLogo" 
                      onerror="this.onerror=null; this.src='assets/sic-logo.png';">
-            </div>
-            <div class="header-text-group">
-                <h1 class="main-headline">SPIN THE WHEEL!</h1>
-                <p class="sub-headline">Spin. Win. Celebrate with SIC!</p>
             </div>
         </header>
 
@@ -86,18 +82,19 @@
         </section>
     </main>
 
-    <!-- Clean Modern Winner Popup (Styled like user reference image) -->
+    <!-- Clean Modern Winner Popup (NO hand illustration) -->
     <div id="winnerModal" class="modal-overlay" role="dialog" aria-modal="true">
         <div class="modal-card">
             <button id="closeModalBtn" class="modal-close-btn" aria-label="Close">&times;</button>
             
-            <!-- Top Line-Art Victory Illustration -->
+            <!-- Clean Trophy Celebration Icon -->
             <div class="modal-illustration">
-                <svg width="84" height="84" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M42 20C42 16.6863 44.6863 14 48 14C51.3137 14 54 16.6863 54 20V42H42V20Z" fill="#BBF7D0" stroke="#15803D" stroke-width="4"/>
-                    <path d="M30 32C30 28.6863 32.6863 26 36 26C39.3137 26 42 28.6863 42 32V48H30V32Z" fill="#BBF7D0" stroke="#15803D" stroke-width="4"/>
-                    <path d="M54 36C54 32.6863 56.6863 30 60 30C63.3137 30 66 32.6863 66 36V50H54V36Z" fill="#BBF7D0" stroke="#15803D" stroke-width="4"/>
-                    <path d="M66 42C66 38.6863 68.6863 36 72 36C75.3137 36 78 38.6863 78 42V60C78 72 68 84 52 84C36 84 24 72 24 60V46C24 42.6863 26.6863 40 30 40C33.3137 40 36 42.6863 36 46V54H42V42H54V46H60V42H66Z" fill="#BBF7D0" stroke="#15803D" stroke-width="4" stroke-linejoin="round"/>
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#002B66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                    <path d="M4 22h16"/>
+                    <path d="M10 14.66V17c0 .55-.45 1-1 1H8v4h8v-4h-1c-.55 0-1-.45-1-1v-2.34"/>
+                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>
                 </svg>
             </div>
 

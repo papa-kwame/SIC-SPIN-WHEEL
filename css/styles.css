@@ -1,5 +1,5 @@
 /*
-  SIC Insurance Spin Wheel - Campaign CSS with Clean Reference Modal Styling
+  SIC Insurance Spin Wheel - Clean Corporate Campaign CSS
   Fonts: Inter & Roboto
   Desktop: Large Tilted Polaroid Photo Wall
   Mobile: Clean Gradient Background
@@ -152,12 +152,12 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* Header Section */
+/* Header Section (Centered Logo) */
 .brand-header {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0 4px;
     z-index: 10;
     margin-bottom: 6px;
@@ -165,7 +165,7 @@ body {
 
 .logo-container {
     background: #FFFFFF;
-    padding: 6px 16px;
+    padding: 8px 24px;
     border-radius: 30px;
     display: flex;
     align-items: center;
@@ -174,33 +174,9 @@ body {
 }
 
 .brand-logo {
-    height: 32px;
-    max-width: 145px;
+    height: 36px;
+    max-width: 160px;
     object-fit: contain;
-}
-
-.header-text-group {
-    text-align: right;
-}
-
-.main-headline {
-    font-family: 'Inter', sans-serif;
-    font-size: 22px;
-    font-weight: 900;
-    letter-spacing: 0.5px;
-    color: #FFFFFF;
-    text-transform: uppercase;
-    line-height: 1.1;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-}
-
-.sub-headline {
-    font-family: 'Roboto', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--sic-sky-blue);
-    margin-top: 2px;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 /* Central Main Wheel Container */
@@ -350,7 +326,7 @@ body {
 }
 
 /* -------------------------------------------------------------
-   CLEAN MODERN POPUP MODAL STYLING (Matching User Reference Image)
+   CLEAN MODERN POPUP MODAL STYLING
    ------------------------------------------------------------- */
 .modal-overlay {
     position: fixed;
@@ -522,7 +498,7 @@ body {
 
 @media (max-width: 768px) {
     .photo-board-backdrop {
-        display: none !important; /* Hide background photo board on phones/tablets */
+        display: none !important;
     }
 
     body {
@@ -539,17 +515,9 @@ body {
         padding: 16px 12px 14px 12px;
     }
 
-    .main-headline {
-        font-size: 20px;
-    }
-
-    .sub-headline {
-        font-size: 12px;
-    }
-
     .brand-logo {
-        height: 28px;
-        max-width: 125px;
+        height: 30px;
+        max-width: 135px;
     }
 
     .spin-btn {
