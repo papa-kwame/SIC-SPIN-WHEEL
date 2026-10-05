@@ -1,7 +1,7 @@
 /*
   SIC Insurance Spin Wheel - Clean Corporate Campaign CSS
   Fonts: Inter & Roboto
-  Desktop: Large Tilted Polaroid Photo Wall
+  Desktop: Extra Large Tilted Polaroid Photo Wall
   Mobile: Clean Gradient Background
 */
 
@@ -42,7 +42,7 @@ body {
 }
 
 /* -------------------------------------------------------------
-   FULL-PAGE PHOTO BOARD BACKDROP (Desktop / Laptop Only)
+   FULL-PAGE PHOTO BOARD BACKDROP (Desktop / Laptop Extra Large Cards)
    ------------------------------------------------------------- */
 .photo-board-backdrop {
     position: fixed;
@@ -53,15 +53,15 @@ body {
     background: radial-gradient(circle at 50% 50%, #001F48 0%, #000E26 70%, #000410 100%);
 }
 
-/* Classic Polaroid Photo Card Styling */
+/* Classic Extra Large Polaroid Photo Card Styling */
 .photo-card {
     position: absolute;
     background: #FFFFFF;
-    padding: 12px 12px 38px 12px;
-    border-radius: 6px;
+    padding: 14px 14px 44px 14px; /* Classic Polaroid Padding */
+    border-radius: 8px;
     box-shadow: 
-        0 24px 50px rgba(0, 0, 0, 0.85),
-        0 6px 16px rgba(0, 0, 0, 0.6),
+        0 28px 60px rgba(0, 0, 0, 0.88),
+        0 8px 20px rgba(0, 0, 0, 0.65),
         inset 0 0 0 1px rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.95);
     will-change: opacity, transform;
@@ -77,9 +77,9 @@ body {
     opacity: 1 !important;
     border-color: #00A8E8 !important;
     box-shadow: 
-        0 35px 70px rgba(0, 0, 0, 0.9),
-        0 0 40px rgba(0, 168, 232, 0.85),
-        0 0 0 3px #00A8E8 !important;
+        0 40px 80px rgba(0, 0, 0, 0.95),
+        0 0 50px rgba(0, 168, 232, 0.85),
+        0 0 0 4px #00A8E8 !important;
     transition: transform 1.2s ease, opacity 1.2s ease, box-shadow 1.2s ease, border-color 1.2s ease !important;
 }
 
@@ -95,17 +95,17 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
-    border-radius: 3px;
+    border-radius: 4px;
     background: #001A3A;
 }
 
 .photo-card::after {
     content: '';
     position: absolute;
-    bottom: 10px;
-    left: 12px;
-    right: 12px;
-    height: 16px;
+    bottom: 12px;
+    left: 14px;
+    right: 14px;
+    height: 20px;
     background: rgba(0, 0, 0, 0.03);
     border-radius: 2px;
 }
@@ -121,16 +121,16 @@ body {
     pointer-events: none;
 }
 
-/* 9 Large Photo Card Positions on Desktop/Laptop */
-.photo-card-1 { top: -1vh; left: -1vw; width: 340px; height: 275px; transform: rotate(-14deg); z-index: 2; }
-.photo-card-2 { top: -1vh; right: -1vw; width: 330px; height: 270px; transform: rotate(13deg); z-index: 2; }
-.photo-card-3 { top: 28vh; left: -2vw; width: 360px; height: 290px; transform: rotate(16deg); z-index: 3; }
-.photo-card-4 { top: 30vh; right: -2vw; width: 350px; height: 280px; transform: rotate(-12deg); z-index: 3; }
-.photo-card-5 { bottom: 0vh; left: -1vw; width: 345px; height: 280px; transform: rotate(-18deg); z-index: 2; }
-.photo-card-6 { bottom: 0vh; right: -1vw; width: 355px; height: 285px; transform: rotate(15deg); z-index: 2; }
-.photo-card-7 { top: 7vh; left: 19vw; width: 300px; height: 240px; transform: rotate(8deg); opacity: 0.6; z-index: 1; }
-.photo-card-8 { top: 9vh; right: 18vw; width: 305px; height: 245px; transform: rotate(-13deg); opacity: 0.6; z-index: 1; }
-.photo-card-9 { bottom: 4vh; left: 23vw; width: 300px; height: 240px; transform: rotate(-6deg); opacity: 0.5; z-index: 1; }
+/* 9 Extra Large Photo Card Positions on Desktop/Laptop (Scaled Up ~40%) */
+.photo-card-1 { top: -2vh; left: -2vw; width: 440px; height: 350px; transform: rotate(-14deg); z-index: 2; }
+.photo-card-2 { top: -2vh; right: -2vw; width: 430px; height: 345px; transform: rotate(13deg); z-index: 2; }
+.photo-card-3 { top: 26vh; left: -3vw; width: 460px; height: 365px; transform: rotate(16deg); z-index: 3; }
+.photo-card-4 { top: 28vh; right: -3vw; width: 450px; height: 360px; transform: rotate(-12deg); z-index: 3; }
+.photo-card-5 { bottom: -2vh; left: -2vw; width: 440px; height: 355px; transform: rotate(-18deg); z-index: 2; }
+.photo-card-6 { bottom: -2vh; right: -2vw; width: 450px; height: 360px; transform: rotate(15deg); z-index: 2; }
+.photo-card-7 { top: 6vh; left: 16vw; width: 380px; height: 300px; transform: rotate(8deg); opacity: 0.65; z-index: 1; }
+.photo-card-8 { top: 8vh; right: 15vw; width: 385px; height: 305px; transform: rotate(-13deg); opacity: 0.65; z-index: 1; }
+.photo-card-9 { bottom: 3vh; left: 20vw; width: 380px; height: 300px; transform: rotate(-6deg); opacity: 0.55; z-index: 1; }
 
 /* -------------------------------------------------------------
    MAIN CAMPAIGN FRAME
@@ -314,26 +314,6 @@ body {
     gap: 16px;
     width: 100%;
     margin-top: 2px;
-}
-
-.icon-btn {
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #FFFFFF;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.icon-btn:hover {
-    background: rgba(255, 255, 255, 0.25);
-    transform: scale(1.08);
 }
 
 .tc-link {
