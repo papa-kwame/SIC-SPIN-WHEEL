@@ -1,0 +1,8 @@
+# Ignore Canon RAW camera files
+*.CR2
+*.cr2
+
+# OS / Environment files
+.DS_Store
+Thumbs.db
+node_modules/
