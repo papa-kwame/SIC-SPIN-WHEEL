@@ -1,7 +1,7 @@
 /**
  * SIC Insurance Spin Wheel - Canvas Physics Engine
  * Slices display large, clear, bold Ghana Cedi fuel coupon amounts (GH₵ 50, GH₵ 100, GH₵ 200).
- * Weighted probabilities (Tissue easiest = 35, GH₵ 200 Fuel hardest = 1).
+ * Weighted probabilities (Pen easiest = 28, GH₵ 200 Fuel hardest = 1).
  */
 
 class SpinWheel {
@@ -9,17 +9,16 @@ class SpinWheel {
         this.canvas = document.getElementById(canvasId);
         this.ctx = this.canvas.getContext('2d');
         
-        // Slices & Weighted Probabilities (Fuel coupons spaced out evenly around the wheel)
+        // 8 Slices & Weighted Probabilities (TISSUE removed; Fuel coupons spaced out evenly)
         this.prizes = options.prizes || [
-            { label: 'T-SHIRT', fullLabel: 'T-SHIRT', bg: '#002B66', text: '#FFFFFF', weight: 14 },
-            { label: 'KEY HOLDER', fullLabel: 'KEY HOLDER', bg: '#E52320', text: '#FFFFFF', weight: 18 },
+            { label: 'DANGLER', fullLabel: 'DANGLER', bg: '#00A8E8', text: '#FFFFFF', weight: 22 },
             { label: 'GH₵ 50 FUEL', fullLabel: 'GH₵ 50 FUEL COUPON', bg: '#0B3C5D', text: '#FFFFFF', weight: 5 },   // Fuel Coupon 1
-            { label: 'PEN', fullLabel: 'PEN', bg: '#FF8C66', text: '#001838', weight: 20 },
-            { label: 'DANGLER', fullLabel: 'DANGLER', bg: '#00A8E8', text: '#FFFFFF', weight: 18 },
+            { label: 'KEY HOLDER', fullLabel: 'KEY HOLDER', bg: '#E52320', text: '#FFFFFF', weight: 24 },
+            { label: 'PEN', fullLabel: 'PEN', bg: '#FF8C66', text: '#001838', weight: 28 },                           // Easiest to win
             { label: 'GH₵ 100 FUEL', fullLabel: 'GH₵ 100 FUEL COUPON', bg: '#004080', text: '#FFFFFF', weight: 3 },  // Fuel Coupon 2
-            { label: 'CAR DUSTER', fullLabel: 'CAR DUSTER', bg: '#DC2626', text: '#FFFFFF', weight: 12 },
-            { label: 'TISSUE', fullLabel: 'TISSUE', bg: '#0284C7', text: '#FFFFFF', weight: 35 },                     // EASIEST TO WIN
-            { label: 'GH₵ 200 FUEL', fullLabel: 'GH₵ 200 FUEL COUPON', bg: '#B91C1C', text: '#FFFFFF', weight: 1 }   // HARDEST TO WIN (Fuel Coupon 3)
+            { label: 'CAR DUSTER', fullLabel: 'CAR DUSTER', bg: '#DC2626', text: '#FFFFFF', weight: 16 },
+            { label: 'T-SHIRT', fullLabel: 'T-SHIRT', bg: '#002B66', text: '#FFFFFF', weight: 18 },
+            { label: 'GH₵ 200 FUEL', fullLabel: 'GH₵ 200 FUEL COUPON', bg: '#B91C1C', text: '#FFFFFF', weight: 1 }   // Fuel Coupon 3 (Hardest)
         ];
 
         this.currentAngle = 0;
